@@ -3,14 +3,7 @@ FROM ubuntu:latest
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get -y update
-
-RUN apt-get -y install dosbox
-RUN apt-get -y install vim
-
-RUN apt-get -y install curl
-RUN apt-get -y install zip unzip
-
-RUN apt-get -y install python python-flask
+RUN apt-get -y install dosbox curl zip unzip python
 
 ENV SDL_VIDEODRIVER dummy
 
@@ -19,16 +12,10 @@ RUN mkdir -p /root/dos
 
 WORKDIR /root/dos
 
-# Using two sources since TravisCI seems to have trouble connecting to archive.org.
 RUN curl \
     -L \
     -o "./olddos.exe" \
-    "https://web.archive.org/web/20120215074213/http://download.microsoft.com/download/win95upg/tool_s/1.0/w95/en-us/olddos.exe" \
-    || \
-    curl \
-    -L \
-    -o "./olddos.exe" \
-    "http://www.pcxt-micro.com/download/olddos.exe"
+    "https://web.archive.org/web/20120215074213/http://download.microsoft.com/download/win95upg/tool_s/1.0/w95/en-us/olddos.exe"
 
 ADD olddos.exe.sha1 ./olddos.exe.sha1
 
