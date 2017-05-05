@@ -34,3 +34,6 @@ Now you can talk Morse via QBasic!
   ..-. .- .- ...  .. -. .- - .. -. --.
 ```
 
+Check my blog post for a quick dive into Serverless FaaS:
+http://jmkhael.io/serverless-and-on-my-own-servers/
+
