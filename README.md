@@ -22,7 +22,8 @@ go build
 
 ./faas-cli -action=deploy \
    -image=jmkhael/faas-qbasic-morse \
-   -name=morse
+   -name=morse \
+   -lang=python
 ```
 
 or via curl:
