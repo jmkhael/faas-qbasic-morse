@@ -1,6 +1,6 @@
 # FaaS QBasic Morse
 
-This repository contains all code required to run a QBasic program as a [FaaS]() function.
+This repository contains all code required to run a QBasic program as a [FaaS](https://github.com/alexellis/faas) function.
 
 ## Building and deploying
 
@@ -10,18 +10,27 @@ This repository contains all code required to run a QBasic program as a [FaaS]()
 docker build . -t jmkhael/morse
 ```
 
-2. Publish it to DockerHub, e.g. as `jmkhael/morse`.
+2. Ship it to FaaS:
 
-3. Ship it to FaaS:
+Either via the UI portal, faas-cli.
 
-```
-curl localhost:8080/system/functions -d '
-{"service": "morse", "image": "jmkhael/morse", "envProcess": "python handler.py", "network": "func_functions"}'
-```
-
-4. Run it: `curl -X POST http://localhost:8080/function/morse -d "FaaS-inating!"`.
+or via curl:
 
 ```
-..-. .- .- ...  .. -. .- - .. -. --.
+curl localhost:8080/system/functions -d '{
+   "service": "morse", 
+   "image": "jmkhael/morse", 
+   "envProcess": 
+   "python handler.py", 
+   "network": "func_functions"
+  }'
+```
+
+3. Run it: `curl -X POST http://localhost:8080/function/morse -d "FaaS-inating!"`.
+
+Now you can talk Morse via QBasic!
+
+```
+  ..-. .- .- ...  .. -. .- - .. -. --.
 ```
 
